@@ -3,16 +3,25 @@
 
 <head><meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="google-site-verification" content="PsvIWOlvq4EFXko0aimUhYmBlHAQmgtTW6LUE1aeIPQ" />
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta http-equiv="Accept-CH" content="DPR, Viewport-Width, Width">
 <link rel="icon" href=/logos/danger.png type="image/gif">
 
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link
-    href="https://fonts.googleapis.com/css2?family=Alata&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
-    rel="stylesheet">
+<link rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Alata&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+>
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Alata&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      media="print" onload="this.media='all'" />
+<noscript>
+  <link
+          href="https://fonts.googleapis.com/css2?family=Alata&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+          rel="stylesheet">
+</noscript>
 
 
 <link rel="stylesheet" href="/css/font.css" media="all">
@@ -22,28 +31,28 @@
 <script type="application/javascript">
 var doNotTrack = false;
 if (!doNotTrack) {
-	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 	ga('create', 'G-DWJJVE27WD', 'auto');
 	
 	ga('send', 'pageview');
 }
 </script>
-<script async src='https://www.google-analytics.com/analytics.js'></script>
 
 <meta property="og:title" content="404 Page not found" />
 <meta property="og:description" content="My projects, experiences and more" />
 <meta property="og:type" content="website" />
-<meta property="og:url" content="https://akankshabaranwal.github.io/404.html" /><meta property="og:site_name" content="My Portfolio" />
-
+<meta property="og:url" content="https://akankshabaranwal.github.io/404.html" />
+<meta property="og:site_name" content="My Portfolio" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="404 Page not found"/>
 <meta name="twitter:description" content="My projects, experiences and more"/>
 
 
-
-<link rel="stylesheet" href="/bootstrap-5/css/bootstrap.min.css" media="all">
-<link rel="stylesheet" href="/css/header.css" media="all">
+<link rel="stylesheet" href="/bootstrap-5/css/bootstrap.min.css" media="all"><link rel="stylesheet" href="/css/header.css" media="all">
 <link rel="stylesheet" href="/css/footer.css" media="all">
 
 
@@ -75,7 +84,35 @@ if (!doNotTrack) {
         line-height: 1.5;
         text-align: left;
     }
+
+    html {
+        background-color: var(--background-color) !important;
+    }
+
+    body::-webkit-scrollbar {
+        width: .5em;
+        height: .5em;
+        background-color: var(--background-color);
+    }
+    
+    ::-webkit-scrollbar-track {
+        box-shadow: inset 0 0 6px var(--background-color);
+        border-radius: 1rem;
+    }
+    
+    ::-webkit-scrollbar-thumb {
+        border-radius: 1rem;
+        background-color: var(--secondary-color);
+        outline: 1px solid var(--background-color);
+    }
+
+    #search-content::-webkit-scrollbar {
+        width: .5em;
+        height: .1em;
+        background-color: var(--background-color);
+    }
 </style>
+
 <meta name="description" content=My&#32;projects,&#32;experiences&#32;and&#32;more>
 
   <title>
@@ -84,15 +121,32 @@ Akanksha Baranwal | 404 page not found
   </title>
 </head>
 
-<body class="light" onload="loading()">
+<body class="light">
   
   
-  <script src="/bootstrap-5/js/bootstrap.bundle.js"></script>
+<script>
+    let localStorageValue = localStorage.getItem("pref-theme");
+    let mediaQuery = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+    switch (localStorageValue) {
+        case "dark":
+            document.body.classList.add('dark');
+            break;
+        case "light":
+            document.body.classList.remove('dark');
+            break;
+        default:
+            if (mediaQuery) {
+                document.body.classList.add('dark');
+            }
+            break;
+    }
+</script>
 
 
 
 <header>
-    <nav class="pt-3 navbar navbar-expand-lg">
+    <nav class="pt-3 navbar navbar-expand-lg ">
         <div class="container-fluid mx-xs-2 mx-sm-5 mx-md-5 mx-lg-5">
             
             <a class="navbar-brand primary-font text-wrap" href="/">
@@ -104,6 +158,13 @@ Akanksha Baranwal | 404 page not found
             </a>
 
             
+                <div>
+                    <input id="search" autocomplete="off" class="form-control mr-sm-2 d-none d-md-block" placeholder='Ctrl &#43; k to Search...'
+                        aria-label="Search" oninput="searchOnChange(event)">
+                </div>
+            
+
+            
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent"
                 aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
                 <svg aria-hidden="true" height="24" viewBox="0 0 16 16" version="1.1" width="24" data-view-component="true">
@@ -113,63 +174,83 @@ Akanksha Baranwal | 404 page not found
 
             
             <div class="collapse navbar-collapse text-wrap primary-font" id="navbarContent">
-                <ul class="navbar-nav  ms-auto text-center">
+                <ul class="navbar-nav ms-auto text-center">
+                    
+                        <li class="nav-item navbar-text d-block d-md-none">
+                            <div class="nav-link">
+                                <input id="search" autocomplete="off" class="form-control mr-sm-2" placeholder='Ctrl &#43; k to Search...' aria-label="Search" oninput="searchOnChange(event)">
+                            </div>
+                        </li>
+                    
+
                     
                     <li class="nav-item navbar-text">
-                        <a class="nav-link" href="/#about" aria-label="about">About</a>
+                        <a class="nav-link" href="/#about" aria-label="about">
+                            About Me
+                        </a>
                     </li>
                     
 
                     
                     <li class="nav-item navbar-text">
                         <a class="nav-link" href="/#experience"
-                            aria-label="experience">Experience</a>
+                            aria-label="experience">
+                            Experience
+                        </a>
                     </li>
                     
 
                     
                     <li class="nav-item navbar-text">
                         <a class="nav-link" href="/#education"
-                            aria-label="education">Education</a>
+                            aria-label="education">
+                            Education
+                        </a>
                     </li>
                     
 
                     
-                    
                     <li class="nav-item navbar-text">
                         <a class="nav-link" href="/#projects"
-                            aria-label="projects">Projects</a>
+                            aria-label="projects">
+                            Projects
+                        </a>
                     </li>
                     
 
                     
                     <li class="nav-item navbar-text">
                         <a class="nav-link" href="/#achievements"
-                            aria-label="achievements">Achievements</a>
+                            aria-label="achievements">
+                            Achievements
+                        </a>
                     </li>
                     
 
                     
                     <li class="nav-item navbar-text">
                         <a class="nav-link" href="/#contact"
-                            aria-label="contact">Contact</a>
+                            aria-label="contact">
+                            Contact
+                        </a>
                     </li>
                     
 
                     
                     
+
+                    
+
                 </ul>
 
-                
-                
             </div>
         </div>
     </nav>
 </header>
 <div id="content">
 <div class="container py-5 text-center">
-    <img src="/404.png" alt="404 page not found" class="img-fluid" width="40%">
-    <h1>404 Page Not Found</h1>
+    <img src="/404.png" alt='404 page not found' class="img-fluid" width="40%">
+    <h1>404 page not found</h1>
 </div>
 
   </div><footer>
@@ -218,7 +299,7 @@ Akanksha Baranwal | 404 page not found
     
 
     
-    <a href="https://twitter.com/beee_curious" aria-label="twitter">
+    <a href="https://twitter.com/bee_curious" aria-label="twitter">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="48px" height="48px">
             <path fill="#03a9f4"
                 d="M42,37c0,2.762-2.239,5-5,5H11c-2.762,0-5-2.238-5-5V11c0-2.762,2.238-5,5-5h26c2.761,0,5,2.238,5,5 V37z" />
@@ -240,7 +321,7 @@ Akanksha Baranwal | 404 page not found
                         height="40px" width="40px">
                 </a>
             </div>
-            &copy; 2022  All Rights Reserved
+            &copy; 2023  All Rights Reserved
             <div class="text-secondary">
                 Made with
                 <span class="text-danger">
@@ -254,7 +335,7 @@ Akanksha Baranwal | 404 page not found
             </div>
         </div>
     </div>
-</div></footer>
+</div></footer><script src="/bootstrap-5/js/bootstrap.bundle.min.js"></script>
 <script>
     if (document.body.className.includes("dark")) {
         document.body.classList.remove('dark');
@@ -264,18 +345,19 @@ Akanksha Baranwal | 404 page not found
 
 
 
-<script>
-    let loadingIcons;
 
-    function loading() {
-        myVar = setTimeout(showPage, 100);
-    }
+    <script src="/js/search.js"></script>
 
-    function showPage() {
-        try{
-            document.getElementById("loading-icons").style.display = "block";
-        } catch(err) {}
-    }
-</script></body>
+
+
+
+
+
+
+
+  <section id="search-content" class="py-2">
+    <div class="container" id="search-results"></div>
+  </section>
+</body>
 
 </html>

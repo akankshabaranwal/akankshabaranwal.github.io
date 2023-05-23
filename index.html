@@ -2,18 +2,27 @@
 <html>
 
 <head>
-	<meta name="generator" content="Hugo 0.96.0" /><meta charset="UTF-8">
+	<meta name="generator" content="Hugo 0.68.3" /><meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="google-site-verification" content="PsvIWOlvq4EFXko0aimUhYmBlHAQmgtTW6LUE1aeIPQ" />
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta http-equiv="Accept-CH" content="DPR, Viewport-Width, Width">
 <link rel="icon" href=/logos/danger.png type="image/gif">
 
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link
-    href="https://fonts.googleapis.com/css2?family=Alata&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
-    rel="stylesheet">
+<link rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Alata&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+>
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Alata&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      media="print" onload="this.media='all'" />
+<noscript>
+  <link
+          href="https://fonts.googleapis.com/css2?family=Alata&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+          rel="stylesheet">
+</noscript>
 
 
 <link rel="stylesheet" href="/css/font.css" media="all">
@@ -23,28 +32,28 @@
 <script type="application/javascript">
 var doNotTrack = false;
 if (!doNotTrack) {
-	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 	ga('create', 'G-DWJJVE27WD', 'auto');
 	
 	ga('send', 'pageview');
 }
 </script>
-<script async src='https://www.google-analytics.com/analytics.js'></script>
 
 <meta property="og:title" content="Akanksha Baranwal" />
 <meta property="og:description" content="My projects, experiences and more" />
 <meta property="og:type" content="website" />
-<meta property="og:url" content="https://akankshabaranwal.github.io/" /><meta property="og:site_name" content="My Portfolio" />
-
+<meta property="og:url" content="https://akankshabaranwal.github.io/" />
+<meta property="og:site_name" content="My Portfolio" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Akanksha Baranwal"/>
 <meta name="twitter:description" content="My projects, experiences and more"/>
 
 
-
-<link rel="stylesheet" href="/bootstrap-5/css/bootstrap.min.css" media="all">
-<link rel="stylesheet" href="/css/header.css" media="all">
+<link rel="stylesheet" href="/bootstrap-5/css/bootstrap.min.css" media="all"><link rel="stylesheet" href="/css/header.css" media="all">
 <link rel="stylesheet" href="/css/footer.css" media="all">
 
 
@@ -76,7 +85,35 @@ if (!doNotTrack) {
         line-height: 1.5;
         text-align: left;
     }
+
+    html {
+        background-color: var(--background-color) !important;
+    }
+
+    body::-webkit-scrollbar {
+        width: .5em;
+        height: .5em;
+        background-color: var(--background-color);
+    }
+    
+    ::-webkit-scrollbar-track {
+        box-shadow: inset 0 0 6px var(--background-color);
+        border-radius: 1rem;
+    }
+    
+    ::-webkit-scrollbar-thumb {
+        border-radius: 1rem;
+        background-color: var(--secondary-color);
+        outline: 1px solid var(--background-color);
+    }
+
+    #search-content::-webkit-scrollbar {
+        width: .5em;
+        height: .1em;
+        background-color: var(--background-color);
+    }
 </style>
+
 <meta name="description" content=My&#32;projects,&#32;experiences&#32;and&#32;more>
 <link rel="stylesheet" href="/css/index.css" media="all">
 <link rel="stylesheet" href="/css/projects.css" media="all">
@@ -90,15 +127,32 @@ Akanksha Baranwal
   </title>
 </head>
 
-<body class="light" onload="loading()">
+<body class="light">
   
   
-  <script src="/bootstrap-5/js/bootstrap.bundle.js"></script>
+<script>
+    let localStorageValue = localStorage.getItem("pref-theme");
+    let mediaQuery = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+    switch (localStorageValue) {
+        case "dark":
+            document.body.classList.add('dark');
+            break;
+        case "light":
+            document.body.classList.remove('dark');
+            break;
+        default:
+            if (mediaQuery) {
+                document.body.classList.add('dark');
+            }
+            break;
+    }
+</script>
 
 
 
 <header>
-    <nav class="pt-3 navbar navbar-expand-lg">
+    <nav class="pt-3 navbar navbar-expand-lg ">
         <div class="container-fluid mx-xs-2 mx-sm-5 mx-md-5 mx-lg-5">
             
             <a class="navbar-brand primary-font text-wrap" href="/">
@@ -110,6 +164,13 @@ Akanksha Baranwal
             </a>
 
             
+                <div>
+                    <input id="search" autocomplete="off" class="form-control mr-sm-2 d-none d-md-block" placeholder='Ctrl &#43; k to Search...'
+                        aria-label="Search" oninput="searchOnChange(event)">
+                </div>
+            
+
+            
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent"
                 aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
                 <svg aria-hidden="true" height="24" viewBox="0 0 16 16" version="1.1" width="24" data-view-component="true">
@@ -119,66 +180,86 @@ Akanksha Baranwal
 
             
             <div class="collapse navbar-collapse text-wrap primary-font" id="navbarContent">
-                <ul class="navbar-nav  ms-auto text-center">
+                <ul class="navbar-nav ms-auto text-center">
+                    
+                        <li class="nav-item navbar-text d-block d-md-none">
+                            <div class="nav-link">
+                                <input id="search" autocomplete="off" class="form-control mr-sm-2" placeholder='Ctrl &#43; k to Search...' aria-label="Search" oninput="searchOnChange(event)">
+                            </div>
+                        </li>
+                    
+
                     
                     <li class="nav-item navbar-text">
-                        <a class="nav-link" href="/#about" aria-label="about">About</a>
+                        <a class="nav-link" href="/#about" aria-label="about">
+                            About Me
+                        </a>
                     </li>
                     
 
                     
                     <li class="nav-item navbar-text">
                         <a class="nav-link" href="/#experience"
-                            aria-label="experience">Experience</a>
+                            aria-label="experience">
+                            Experience
+                        </a>
                     </li>
                     
 
                     
                     <li class="nav-item navbar-text">
                         <a class="nav-link" href="/#education"
-                            aria-label="education">Education</a>
+                            aria-label="education">
+                            Education
+                        </a>
                     </li>
                     
 
                     
-                    
                     <li class="nav-item navbar-text">
                         <a class="nav-link" href="/#projects"
-                            aria-label="projects">Projects</a>
+                            aria-label="projects">
+                            Projects
+                        </a>
                     </li>
                     
 
                     
                     <li class="nav-item navbar-text">
                         <a class="nav-link" href="/#achievements"
-                            aria-label="achievements">Achievements</a>
+                            aria-label="achievements">
+                            Achievements
+                        </a>
                     </li>
                     
 
                     
                     <li class="nav-item navbar-text">
                         <a class="nav-link" href="/#contact"
-                            aria-label="contact">Contact</a>
+                            aria-label="contact">
+                            Contact
+                        </a>
                     </li>
                     
 
                     
                     
+
+                    
+
                 </ul>
 
-                
-                
             </div>
         </div>
     </nav>
 </header>
 <div id="content">
-<section id="hero" class="py-5">
+<section id="hero" class="py-5 align-middle">
     <div class="container px-3 px-sm-5 px-md-5 px-lg-5 pt-lg-3">
         <div class="row">
-            <div class="col-sm-12 col-md-12 col-lg-8 content" id="primary-font">
+            <div class="col-sm-12 col-md-12 col-lg-8 content " id="primary-font">
                 <span class="subtitle">
-                    Life before Death. Strength before weakness. Journey before Destination - Brandon Sanderson
+                    
                 </span>
                 <h2>
                     Akanksha Baranwal
@@ -192,12 +273,15 @@ Akanksha Baranwal
                 <div class="row">
                     <div class="col-auto h-100">
                         
-                        <a href="https://drive.google.com/file/d/0B39zqLGKF_CEZVIxSURmVXRhbDQ/view?usp=sharing&amp;resourcekey=0-6eLtnJGpkkW4duVhjnMowQ" class="btn">
+                        <a href="https://drive.google.com/file/d/0B39zqLGKF_CEZVIxSURmVXRhbDQ/view?usp=sharing&amp;resourcekey=0-6eLtnJGpkkW4duVhjnMowQ" class="btn" ZgotmplZ
+			  
+                          target="_blank"
+                          >
                             Resume
                         </a>
                         
                     </div>
-                    <div class="col-auto px-0 h-100"><span id="loading-icons" style="display: none;">
+                    <div class="col-auto px-0 h-100"><span>
     
     <span class="px-1">
         <a href="https://www.linkedin.com/in/akanksha-baranwal/" target="_blank" class="btn social-icon">
@@ -218,9 +302,9 @@ Akanksha Baranwal
             </div>
             <div class="col-sm-12 col-md-12 col-lg-4">
                 <div class="row justify-content-center">
-                    <div class="col-sm-12 col-md-9 pt-5 image px-5 px-md-5 px-lg-0 text-center">
-                        <img src="/images/me2.png" 
-                            class="img-thumbnail mx-auto" 
+                    <div class="col-sm-12 col-md-9 pt-5 image  px-5 px-md-5 px-lg-0 text-center">
+                        <img src="/images/me2.png"
+                            class="img-thumbnail mx-auto"
                             alt=""
                         >
                     </div>
@@ -228,6 +312,7 @@ Akanksha Baranwal
             </div>
         </div>
     </div>
+    
     <div class="hero-bottom-svg d-md-block d-lg-block d-none">
         <svg xmlns="http://www.w3.org/2000/svg" width="201" height="201" viewBox="0 0 201 201">
             <g id="Group_1168" data-name="Group 1168" transform="translate(-384 -1392)">
@@ -490,6 +575,7 @@ Akanksha Baranwal
             </g>
         </svg>
     </div>
+    
 </section>
 
 <section id="about" class="py-0 py-sm-5">
@@ -498,7 +584,7 @@ Akanksha Baranwal
         <div class="bg-transparent row justify-content-center px-3 py-5">
             
             <div class="col-sm-12 col-md-12 col-lg-8 content">
-                I like finding solutions for across the stack high performance computing. I have been fortunate to have worked with both industry and academic experts for optimizing performance of machine learning/computer vision algorithms on multiple platforms - GPU, FPGAs, CPU and a bit of In-Memory-Computing. In my free time I read alot - mainly fiction, biographies, autobiographis and methodical self-help books (on goodreads as curiousbee). I also love playing badminton, hiking and learning new sports whenever I get a chance. I am a firm believer of being brave to suck at something new, so I often find myself exploring uncharted territories. I prefer working in fast paced cooperative setups.
+                I recently graduated from ETH Zurich with a Masters in Computer Science. My thesis was on Optimizing GPU Convnets with the Scalable Parallel Computing Lab (Prof. Torsten Hoefler) co-supervised by Dr. Nikoli Dryden and Dr. Tal Ben-Nun. I have been fortunate to have worked with both industry and academic experts for optimizing performance of machine learning/computer vision algorithms on multiple platforms - GPU, FPGAs, CPU and a bit of In-Memory-Computing. I read in my free time - mainly fiction, biographies, autobiographis and methodical self-help books. I also like playing badminton, hiking and learning new sports whenever I get a chance. I believe in being brave to suck at something new, so I often find myself exploring uncharted territories. I prefer working in fast paced cooperative setups.
 
                 
             </div>
@@ -512,36 +598,18 @@ Akanksha Baranwal
         <div class="row justify-content-center">
             <div class="col-sm-12 col-md-8 col-lg-8 py-5">
                 <div class="experience-container px-3 pt-2">
-                    <ul class="nav nav-pills mb-3 bg-transparent" id="pills-tab" role="tablist">
+                    <ul class="nav nav-pills mb-3 bg-transparent primary-font" id="pills-tab" role="tablist">
                         
                         
                         <li class="nav-item px-1 bg-transparent" role="presentation">
                             <div 
                                 class="nav-link active bg-transparent" 
                                 aria-selected="true" 
-                                type="button"
-                                role="tab" 
-                                data-bs-toggle="pill"
-                                id='FLOATING-ROBOTICS-Mar-2022---present-tab'
-                                data-bs-target='#pills-FLOATING-ROBOTICS-Mar-2022---present'
-                                aria-controls='FLOATING-ROBOTICS-Mar-2022---present' 
-                            >
-                                FLOATING ROBOTICS
-                            </div>
-                        </li>
-                        
-                        
-                        
-                        <li class="nav-item px-1 bg-transparent" role="presentation">
-                            <div 
-                                class="nav-link bg-transparent" 
-                                aria-selected="true" 
-                                type="button"
                                 role="tab" 
                                 data-bs-toggle="pill"
                                 id='NVIDIA-July-2018---Aug-2020-tab'
-                                data-bs-target='#pills-NVIDIA-July-2018---Aug-2020' 
-                                aria-controls='NVIDIA-July-2018---Aug-2020'
+                                data-bs-target='#pills-NVIDIA-July-2018---Aug-2020'
+                                aria-controls='NVIDIA-July-2018---Aug-2020' 
                             >
                                 NVIDIA
                             </div>
@@ -553,7 +621,6 @@ Akanksha Baranwal
                             <div 
                                 class="nav-link bg-transparent" 
                                 aria-selected="true" 
-                                type="button"
                                 role="tab" 
                                 data-bs-toggle="pill"
                                 id='IBM-and-Safari-Research-Group-Feb-2021---Sep-2021-tab'
@@ -565,35 +632,28 @@ Akanksha Baranwal
                         </li>
                         
                         
+                        
+                        <li class="nav-item px-1 bg-transparent" role="presentation">
+                            <div 
+                                class="nav-link bg-transparent" 
+                                aria-selected="true" 
+                                role="tab" 
+                                data-bs-toggle="pill"
+                                id='FLOATING-ROBOTICS-Mar-2022---Jul-2022-tab'
+                                data-bs-target='#pills-FLOATING-ROBOTICS-Mar-2022---Jul-2022' 
+                                aria-controls='FLOATING-ROBOTICS-Mar-2022---Jul-2022'
+                            >
+                                FLOATING ROBOTICS
+                            </div>
+                        </li>
+                        
+                        
                     </ul>
                     <div class="tab-content pb-5 pt-2 bg-transparent primary-font" id="pills-tabContent">
                         
                         
                         <div 
                             class="tab-pane fade show active bg-transparent" 
-                            role="tabpanel"
-                            id='pills-FLOATING-ROBOTICS-Mar-2022---present'
-                            aria-labelledby='pills-FLOATING-ROBOTICS-Mar-2022---present-tab'
-                        >
-                            <div>
-                                <span class="h4">Research Engineer (Deep Learning)</span>
-                                <small>-</small>
-                                <a href="https://www.floatingrobotics.com/" target="_blank">FLOATING ROBOTICS</a>
-                                <div class="pb-1">
-                                    <small>Mar 2022 - present</small>
-                                    
-                                </div>
-
-                                
-                            </div>
-
-                            I am working part time at Floating Robotics which is a spin-off of Robotics Systems Lab at ETH. I work on optimizing solutions for automated farming for NVIDIA Jetson GPUs.
-                        </div>
-                        
-                        
-                        
-                        <div 
-                            class="tab-pane fade bg-transparent" 
                             role="tabpanel"
                             id='pills-NVIDIA-July-2018---Aug-2020'
                             aria-labelledby='pills-NVIDIA-July-2018---Aug-2020-tab'
@@ -602,23 +662,19 @@ Akanksha Baranwal
                                 <span class="h4">GPU Performance Architect</span>
                                 <small>-</small>
                                 <a href="https://www.nvidia.com/en-in/" target="_blank">NVIDIA</a>
-                                
                                 <div class="pb-1">
                                     <small>July 2018 - Aug 2020</small>
                                     
                                 </div>
-                                
+
                                 
                             </div>
 
-                            <div class="pt-2">
-                                <ul>
+                            <ul>
 <li>Responsible for directed performance bringup of GA10X class chips.</li>
 <li>Analyzing performance of next generation chips from the compute pipeline perspective.</li>
 <li>Developed a full-stack framework for running CUDA apps directly on GPU architecture software models to help analyze application performance.</li>
 </ul>
-
-                            </div>
                         </div>
                         
                         
@@ -654,7 +710,36 @@ Akanksha Baranwal
 <li>Assesed the feasibility of neural network based genome basecalling on analog PCM devices.</li>
 <li>Excel based models to project estimated speedups based on the network architecture</li>
 </ul>
+                            </div>
+                        </div>
+                        
+                        
+                        
+                        <div 
+                            class="tab-pane fade bg-transparent" 
+                            role="tabpanel"
+                            id='pills-FLOATING-ROBOTICS-Mar-2022---Jul-2022'
+                            aria-labelledby='pills-FLOATING-ROBOTICS-Mar-2022---Jul-2022-tab'
+                        >
+                            <div>
+                                <span class="h4">Research Engineer (Deep Learning)</span>
+                                <small>-</small>
+                                <a href="https://www.floatingrobotics.com/" target="_blank">FLOATING ROBOTICS</a>
+                                
+                                <div class="pb-1">
+                                    <small>Mar 2022 - Jul 2022</small>
+                                    
+                                </div>
+                                
+                                
+                            </div>
 
+                            <div class="pt-2">
+                                <ul>
+<li>Floating Robotics is a spin-off of Robotics Systems Lab at ETH.</li>
+<li>Explored different solutions for optimizing fruit and leaf detection for deploying on NVIDIA Jetson GPUs.</li>
+<li>Added object tracking and explored using GANs to improve dataset.</li>
+</ul>
                             </div>
                         </div>
                         
@@ -665,6 +750,7 @@ Akanksha Baranwal
         </div>
     </div>
 </section>
+
 
 <section id="education" class="py-5">
     <div class="container">
@@ -680,7 +766,7 @@ Akanksha Baranwal
                         <div class="card">
                             <div class="card-body">
                                 <div class="float-end">
-                                    <small>2020 - Present</small>
+                                    <small>2020 - 2023</small>
                                 </div>
                                 <h5 class="card-title">Master of Science in Computer Science </h5>
                                 
@@ -692,15 +778,12 @@ Akanksha Baranwal
                                 </a>
                                 
 
-                                <div class="py-1">
-                                    GPA:
-                                    <i>
-                                        <small>In progress</small>
-                                    </i> 
-                                </div>
+                                
                                 <div class="py-1 education-content">
-                                    <p>Featured Courses</p>
+                                    Master Thesis</p>
 <ul>
+<li>Optimizing GPU Convnets, Scalable Parallel Computing Lab, Prof. Torsten Hoefler
+Featured Courses</li>
 <li>Design for Parallel and High Performance Computing</li>
 <li>Advanced Systems Lab</li>
 <li>Computer Architecture</li>
@@ -709,7 +792,6 @@ Akanksha Baranwal
 <li>Advanced Machine Learning</li>
 <li>Computational Intelligence Lab</li>
 </ul>
-
                                 </div>
 
                                 
@@ -739,14 +821,9 @@ Akanksha Baranwal
                                 </a>
                                 
 
-                                <div class="py-1">
-                                    GPA:
-                                    <i>
-                                        <small>9.29 out of 10.0</small>
-                                    </i> 
-                                </div>
+                                
                                 <div class="py-1 education-content">
-                                    <p>Featured Courses</p>
+                                    Featured Courses</p>
 <ul>
 <li>Introduction to parallel scientific computing</li>
 <li>Complex digital system design</li>
@@ -756,7 +833,6 @@ Akanksha Baranwal
 <li>Embedded Hardware Design</li>
 <li>Statistical Methods in AI</li>
 </ul>
-
                                 </div>
 
                                 
@@ -769,6 +845,7 @@ Akanksha Baranwal
         </div>
     </div>
 </section>
+
 
 <section id="projects" class="py-5">
     <div class="container">
@@ -793,9 +870,6 @@ Akanksha Baranwal
                         <h5 class="card-title bg-transparent mt-1">Fast Graph Based Image Segmentation on GPGPUs</h5>
                         <div class="card-text bg-transparent secondary-font">
                             We use CUDA data parallel primitives to accelerate MST based image segmentation methods. In addition we propose a highly efficient solution based on atomic operations.
-                        </div>
-                        <div class="card-text bg-transparent default-font">
-                            Akanksha Baranwal, Amory Hoste, Gyorgy Rethy, Kouroche Bouchiat
                         </div>
                     </div>
                     
@@ -837,9 +911,6 @@ Akanksha Baranwal
                         <h5 class="card-title bg-transparent mt-1">Arbitrary Precision Ball Arithmetic Library</h5>
                         <div class="card-text bg-transparent secondary-font">
                             An arbitrary precision ball arithmetic library that performs addition, subtraction, and multiplication. We focus on an optimized implementation for x86-64 systems using midpoint-radius intervals. We show that we achieve better performance in some cases when compared to libraries that exist out there.
-                        </div>
-                        <div class="card-text bg-transparent default-font">
-                            Akanksha Baranwal, Gyorgy Rethy, Jiaqi Chen, Kouroche Bouchiat
                         </div>
                     </div>
                     
@@ -884,9 +955,6 @@ Akanksha Baranwal
                         <div class="card-text bg-transparent secondary-font">
                             A high-performance FPGA based architecture which exploits the intra-layer parallelism of CNNs by flattening across depth and combines it with a highly pipelined data flow across the layers enabling inter-layer fusion. Compared to a 3.5GHz hexa-core Intel Xeon E7 caffe-implementation, our projections for a 120MHz FPGA accelerator are 30X faster. In addition, our design reduces external memory access by 11.5X along with a speedup of more than 2X in the number of clock cycles compared to state-of-the-art FPGA accelerators.
                         </div>
-                        <div class="card-text bg-transparent default-font">
-                            Akanksha Baranwal, Ishan Bansal, Roopal Nahar, K. Madhava Krishna
-                        </div>
                     </div>
                     
                     <div class="card-footer py-3">
@@ -930,9 +998,6 @@ Akanksha Baranwal
                         <div class="card-text bg-transparent secondary-font">
                             In this paper, we propose three novel architectures of a well known Efficient Graph based Image Segmentation algorithm. These proposed implementations optimizes time and power consumption when compared to software implementations. The hybrid design proposed, has notable furtherance of acceleration capabilities delivering atleast 2X speed gain over other implementations, which henceforth allows real time image segmentation that can be deployed on Mobile Robotic systems.
                         </div>
-                        <div class="card-text bg-transparent default-font">
-                            Roopal Nahar, Akanksha Baranwal, K. Madhava Krishna
-                        </div>
                     </div>
                     
                     <div class="card-footer py-3">
@@ -969,9 +1034,6 @@ Akanksha Baranwal
                         <h5 class="card-title bg-transparent mt-1">Road Segmentation in Satellite Images</h5>
                         <div class="card-text bg-transparent secondary-font">
                             We analyze the impact of architecture modifications of a U-Net, namely the GC-DCNN and other selfdeveloped variations. Our experiments with fine tuning and model architecture alterations lead us to a novel better variant of GC-DCNN. We also propose two novel post-processing techniques to remove artefacts in predictions.
-                        </div>
-                        <div class="card-text bg-transparent default-font">
-                            Akanksha Baranwal, Jona Braun, Andreas Kaufmann, Frederike Lubeck
                         </div>
                     </div>
                     
@@ -1011,9 +1073,6 @@ Akanksha Baranwal
                         <h5 class="card-title bg-transparent mt-1">Jigsaw Puzzle Solver Using Digital Image Processing</h5>
                         <div class="card-text bg-transparent secondary-font">
                             The aim is to reconstruct the original image from a set of non-overlapping, unordered, square puzzle parts. Multiple puzzles mixed into one and puzzles with up to 30% missing pieces can be handled.
-                        </div>
-                        <div class="card-text bg-transparent default-font">
-                            Akanksha Baranwal, Prachi Agrawal
                         </div>
                     </div>
                     
@@ -1133,12 +1192,12 @@ Akanksha Baranwal
 
 <section id="contact" class="py-5">
     <div class="container">
-        <h3 class="text-center">Get In Touch</h3>
+        <h3 class="text-center">Get in Touch</h3>
         <div class="px-0 px-md-5 px-lg-5">
             <div class="row justify-content-center px-md-5">
                 <div class="col-md-8 py-3">
                     <div class="text-center">
-                        I am open to interesting opportunities and discussions. With my fair share of ups and downs in life, and as those close to me would attest I am very good at motivating. So my inbox is always open, whether you have a question, are on the verge of giving up or just want to say hi, I’ll try my best to get back to you!
+                        I am open to interesting opportunities and discussions in the computer systems space. Feel free to reach out to me.
                     </div>
                     
                     <div class="text-center pt-3">
@@ -1151,7 +1210,21 @@ Akanksha Baranwal
             </div>
         </div>
     </div>
+    <div id="contact-form-status"></div>
 </section>
+
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="check-circle-fill" viewBox="0 0 16 16">
+    <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
+  </symbol>
+  <symbol id="info-fill" viewBox="0 0 16 16">
+    <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/>
+  </symbol>
+  <symbol id="exclamation-triangle-fill" viewBox="0 0 16 16">
+    <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+  </symbol>
+</svg>
 
   </div><footer>
     <div class="container py-3" id="recent-posts">
@@ -1199,7 +1272,7 @@ Akanksha Baranwal
     
 
     
-    <a href="https://twitter.com/beee_curious" aria-label="twitter">
+    <a href="https://twitter.com/bee_curious" aria-label="twitter">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="48px" height="48px">
             <path fill="#03a9f4"
                 d="M42,37c0,2.762-2.239,5-5,5H11c-2.762,0-5-2.238-5-5V11c0-2.762,2.238-5,5-5h26c2.761,0,5,2.238,5,5 V37z" />
@@ -1221,7 +1294,7 @@ Akanksha Baranwal
                         height="40px" width="40px">
                 </a>
             </div>
-            &copy; 2022  All Rights Reserved
+            &copy; 2023  All Rights Reserved
             <div class="text-secondary">
                 Made with
                 <span class="text-danger">
@@ -1235,7 +1308,7 @@ Akanksha Baranwal
             </div>
         </div>
     </div>
-</div></footer>
+</div></footer><script src="/bootstrap-5/js/bootstrap.bundle.min.js"></script>
 <script>
     if (document.body.className.includes("dark")) {
         document.body.classList.remove('dark');
@@ -1245,18 +1318,19 @@ Akanksha Baranwal
 
 
 
-<script>
-    let loadingIcons;
 
-    function loading() {
-        myVar = setTimeout(showPage, 100);
-    }
+    <script src="/js/search.js"></script>
 
-    function showPage() {
-        try{
-            document.getElementById("loading-icons").style.display = "block";
-        } catch(err) {}
-    }
-</script></body>
+
+
+
+
+
+
+
+  <section id="search-content" class="py-2">
+    <div class="container" id="search-results"></div>
+  </section>
+</body>
 
 </html>

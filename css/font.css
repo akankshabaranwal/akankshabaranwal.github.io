@@ -9,12 +9,6 @@ body {
     font-family: "Lora", serif;
 }
 
-/* author font */
-.author-font, #author-font {
-    font-family: "Lora", serif;
-    font-style: italic;
-}
-
 /* primary font */
 .primary-font, #primary-font {
     font-family: "Alata", sans-serif;
@@ -22,6 +16,5 @@ body {
 
 /* Default font */
 .default-font, #default-font {
-    font-family: "Laura", serif;
-    font-style: italic;
+    font-family: "Roboto", sans-serif;
 }
