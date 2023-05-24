@@ -164,11 +164,6 @@ Akanksha Baranwal
             </a>
 
             
-                <div>
-                    <input id="search" autocomplete="off" class="form-control mr-sm-2 d-none d-md-block" placeholder='Ctrl &#43; k to Search...'
-                        aria-label="Search" oninput="searchOnChange(event)">
-                </div>
-            
 
             
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent"
@@ -181,12 +176,6 @@ Akanksha Baranwal
             
             <div class="collapse navbar-collapse text-wrap primary-font" id="navbarContent">
                 <ul class="navbar-nav ms-auto text-center">
-                    
-                        <li class="nav-item navbar-text d-block d-md-none">
-                            <div class="nav-link">
-                                <input id="search" autocomplete="off" class="form-control mr-sm-2" placeholder='Ctrl &#43; k to Search...' aria-label="Search" oninput="searchOnChange(event)">
-                            </div>
-                        </li>
                     
 
                     
@@ -780,17 +769,16 @@ Akanksha Baranwal
 
                                 
                                 <div class="py-1 education-content">
-                                    Master Thesis</p>
+                                    Featured Courses</p>
 <ul>
-<li>Optimizing GPU Convnets, Scalable Parallel Computing Lab, Prof. Torsten Hoefler
-Featured Courses</li>
+<li>Advanced Machine Learning</li>
+<li>Machine Perception</li>
+<li>Computational Intelligence Lab</li>
 <li>Design for Parallel and High Performance Computing</li>
 <li>Advanced Systems Lab</li>
 <li>Computer Architecture</li>
 <li>Principles of Distributed Computing</li>
 <li>Advanced Algorithms</li>
-<li>Advanced Machine Learning</li>
-<li>Computational Intelligence Lab</li>
 </ul>
                                 </div>
 
@@ -825,13 +813,13 @@ Featured Courses</li>
                                 <div class="py-1 education-content">
                                     Featured Courses</p>
 <ul>
+<li>Statistical Methods in AI</li>
+<li>Digital Image Processing</li>
+<li>Computer Vision</li>
 <li>Introduction to parallel scientific computing</li>
 <li>Complex digital system design</li>
 <li>Computer System Organization</li>
-<li>Digital Image Processing</li>
-<li>Computer Vision</li>
 <li>Embedded Hardware Design</li>
-<li>Statistical Methods in AI</li>
 </ul>
                                 </div>
 
@@ -851,6 +839,43 @@ Featured Courses</li>
     <div class="container">
         <h3 class="text-center">Projects</h3>
         <div class="row justify-content-center px-3 px-md-5">
+            
+            <div class="col-lg-4 col-md-6 my-3">
+                <div class="card my-3 h-100" title="Master Thesis - Optimizing GPU Convnets">
+                    <div class="card-head">
+                        <img class="card-img-top" src="/images/graphc.png" alt="Master Thesis - Optimizing GPU Convnets">
+                    </div>
+                    <div class="card-body bg-transparent p-3">
+                        <div class="pb-2 bg-transparent">
+                            
+                            <span class="badge badge-secondary">CUDA</span>
+                            
+                            <span class="badge badge-secondary">Python</span>
+                            
+                            <span class="badge badge-secondary">MIOpen</span>
+                            
+                            <span class="badge badge-secondary">Data centric programming</span>
+                            
+                        </div>
+                        <h5 class="card-title bg-transparent mt-1">Master Thesis - Optimizing GPU Convnets</h5>
+                        <div class="card-text bg-transparent secondary-font">
+                            We use the DaCe framework to develop portable optimizations for 3D convolutions for NVIDIA and AMD GPUs. We benchmark the optimized code against the available manually tuned library implementations.
+                        </div>
+                    </div>
+                    
+                    <div class="card-footer py-3">
+                        
+                        
+                        <span class="float-end">
+                            <a class="btn btn-sm" href="https://www.research-collection.ethz.ch/handle/20.500.11850/613203" target="_blank">
+                                Report
+                            </a>
+                        </span>
+                        
+                    </div>
+                    
+                </div>
+            </div>
             
             <div class="col-lg-4 col-md-6 my-3">
                 <div class="card my-3 h-100" title="Fast Graph Based Image Segmentation on GPGPUs">
@@ -1318,8 +1343,6 @@ Featured Courses</li>
 
 
 
-
-    <script src="/js/search.js"></script>
 
 
 
